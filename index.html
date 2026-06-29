@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baldi's Basics Classic</title>
+
+    <script src="Build/UnityLoader.js"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: #181818;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #unityContainer {
+            width: 85vw;
+            height: 85vh;
+            box-shadow: 0 0 25px rgba(0,0,0,.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        #fullscreen {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            transition: .2s;
+        }
+
+        #fullscreen:hover {
+            background: #43a047;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="unityContainer"></div>
+
+<button id="fullscreen">⛶ Tela Cheia</button>
+
+<script>
+    var gameInstance = UnityLoader.instantiate(
+        "unityContainer",
+        "Build/BaldisBasicsWebGL.json"
+    );
+
+    document.getElementById("fullscreen").onclick = function () {
+        gameInstance.SetFullscreen(1);
+    };
+</script>
+
+</body>
+</html>
